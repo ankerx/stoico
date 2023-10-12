@@ -38,7 +38,9 @@ export const Navbar = () => {
   };
   return (
     <Header className={styles.header}>
-      <Title className={styles.title}>NewsHub</Title>
+      <Link to="/">
+        <Title className={styles.title}>NewsHub</Title>
+      </Link>
 
       <Menu
         mode="horizontal"

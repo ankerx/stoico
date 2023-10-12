@@ -1,12 +1,24 @@
 import { ConfigProvider, Empty, Table } from "antd";
 import { ModifiedArticle, returnColumns } from "./data";
 import styles from "./styles.module.css";
+import { useAppDispatch } from "../../../../redux/hooks";
+import { setDetails, toggleModal } from "../../../../redux/features/modalSlice";
+import { SingleNewsDetailsModal } from "../SingleNewsDetailsModal";
+
 type Props = {
   isLoading: boolean;
   articles: ModifiedArticle[];
 };
+
 export const TableWithNews = ({ isLoading, articles }: Props) => {
-  const columns = returnColumns(articles);
+  const dispatch = useAppDispatch();
+
+  const openModalWithDetails = (article: ModifiedArticle) => {
+    dispatch(setDetails(article));
+    dispatch(toggleModal(true));
+  };
+
+  const columns = returnColumns({ articles, openModalWithDetails });
   return (
     <>
       <ConfigProvider
@@ -28,6 +40,7 @@ export const TableWithNews = ({ isLoading, articles }: Props) => {
           loading={isLoading}
           rowKey={(data) => data.title}
         />
+        <SingleNewsDetailsModal />
       </ConfigProvider>
     </>
   );

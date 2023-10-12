@@ -1,9 +1,18 @@
 import { Button } from "antd";
 import { Article } from "../../../../redux/api/news/types";
 import { ColumnsType } from "antd/es/table";
-export type ModifiedArticle = Omit<Article, "source"> & { source: string };
 
-export const returnColumns = (articles: ModifiedArticle[]) => {
+export type ModifiedArticle = Omit<Article, "source"> & { source: string };
+type Params = {
+  articles: ModifiedArticle[];
+  openModalWithDetails: (data: ModifiedArticle) => void;
+};
+const dateFilters = [
+  { text: "Last 7 Days", value: "7" },
+  { text: "Last 30 Days", value: "30" },
+  { text: "Last 90 Days", value: "90" },
+];
+export const returnColumns = ({ articles, openModalWithDetails }: Params) => {
   const uniqueOrigins = new Set();
   const filterOptions = articles
     .filter((article) => {
@@ -14,11 +23,7 @@ export const returnColumns = (articles: ModifiedArticle[]) => {
       return false;
     })
     .map((article) => ({ text: article.source, value: article.source }));
-  const dateFilters = [
-    { text: "Last 7 Days", value: "7" },
-    { text: "Last 30 Days", value: "30" },
-    { text: "Last 90 Days", value: "90" },
-  ];
+
   const columns: ColumnsType<ModifiedArticle> = [
     {
       title: "Source",
@@ -70,8 +75,9 @@ export const returnColumns = (articles: ModifiedArticle[]) => {
       title: "Details",
       dataIndex: "details",
       key: "details",
-
-      render: () => <Button>See more</Button>,
+      render: (_, record) => (
+        <Button onClick={() => openModalWithDetails(record)}>See more</Button>
+      ),
     },
   ];
   return columns;

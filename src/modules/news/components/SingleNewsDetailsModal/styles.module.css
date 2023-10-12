@@ -1,0 +1,13 @@
+.text-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-wrapper img{
+    width: 100%;
+    object-fit: contain;
+}
+
+.title {
+    font-size: 1.1rem;
+}
