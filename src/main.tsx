@@ -10,7 +10,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { NewsList } from "./modules/news/components/NewsList/index.tsx";
-import { Headlines } from "./modules/headlines/index.tsx";
+import { Headlines } from "./modules/headlines/components/Headlines/index.tsx";
 import { RootLayout } from "./core/UI/Layout/index.tsx";
 import { PageNotFound } from "./core/PageNotFound/PageNotFound.tsx";
 

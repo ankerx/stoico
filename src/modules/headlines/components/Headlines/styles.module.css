@@ -1,0 +1,10 @@
+.wrapper {
+    padding: 3rem;
+    text-align: center;
+    background-color: white;
+}
+
+.text {
+    font-size: 1.2rem;
+    margin-top: 3rem;
+}

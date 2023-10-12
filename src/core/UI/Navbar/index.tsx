@@ -21,7 +21,7 @@ const items: MenuProps["items"] = [
             key: "news",
           },
           {
-            label: <Link to="/headlines">Top headlines</Link>,
+            label: <Link to="/headlines">Headlines</Link>,
             key: "headlines",
           },
         ],
