@@ -8,7 +8,7 @@ type State = {
   sortBy: SortOptions;
 };
 const initialState: State = {
-  selectedLanguage: "en",
+  selectedLanguage: "",
   searchQuery: "USA",
   sortBy: "",
 };

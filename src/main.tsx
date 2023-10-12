@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+import "./styles.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.ts";
 import {
@@ -9,16 +9,17 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import { NewsList } from "./modules/news/NewsList/index.tsx";
+import { NewsList } from "./modules/news/components/NewsList/index.tsx";
 import { Headlines } from "./modules/headlines/index.tsx";
 import { RootLayout } from "./core/UI/Layout/index.tsx";
+import { PageNotFound } from "./core/PageNotFound/PageNotFound.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<NewsList />} />
       <Route element={<Headlines />} path="headlines" />
-      <Route element={<Headlines />} path="*" />
+      <Route element={<PageNotFound />} path="*" />
     </Route>
   )
 );

@@ -3,7 +3,7 @@ type Source = {
   name: string;
 };
 
-type Article = {
+export type Article = {
   source: Source;
   author: string | null;
   title: string;

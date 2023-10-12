@@ -11,7 +11,7 @@ export type SupportedLanguages =
   | "pt"
   | "ru"
   | "sv"
-  | "ud"
-  | "zh";
+  | "zh"
+  | "";
 
 export type SortOptions = "popularity" | "language" | "";

@@ -4,3 +4,9 @@
     justify-content: space-between;
     background-color: white;
 }
+
+.title{
+    @media screen and (max-width:400px) {
+        font-size: 1.8rem !important
+    }
+}

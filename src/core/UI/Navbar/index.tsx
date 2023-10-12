@@ -5,6 +5,7 @@ import { Header } from "antd/es/layout/layout";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
+import Title from "antd/es/typography/Title";
 const items: MenuProps["items"] = [
   {
     label: "Menu",
@@ -37,7 +38,7 @@ export const Navbar = () => {
   };
   return (
     <Header className={styles.header}>
-      <h1>NewsHub</h1>
+      <Title className={styles.title}>NewsHub</Title>
 
       <Menu
         mode="horizontal"
